@@ -27,30 +27,30 @@ const select_payment_method = (payment_method) => {
       };
       break;
 
-    case "Paypal":
-      return {
-        payment_method: "Paypal",
-        // payment_qr_code:
-        //   "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
-        payment_wallet: "bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmyPAYPAL",
-      };
-      break;
+    // case "Paypal":
+    //   return {
+    //     payment_method: "Paypal",
+    //     // payment_qr_code:
+    //     //   "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
+    //     payment_wallet: "bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmyPAYPAL",
+    //   };
+    //   break;
 
-    case "Perfect Money":
-      return {
-        payment_method: "Perfect Money",
-        // payment_qr_code:
-        //   "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
-        payment_wallet: "bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmyPAYPAL",
-      };
-      break;
+    // case "Perfect Money":
+    //   return {
+    //     payment_method: "Perfect Money",
+    //     // payment_qr_code:
+    //     //   "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
+    //     payment_wallet: "bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmyPAYPAL",
+    //   };
+    //   break;
 
     default:
       return {
-        payment_method: "Unavailable",
-        // payment_qr_code:
-        //   "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
-        payment_wallet: "Unavailable",
+        payment_method: "Bitcoin",
+        payment_qr_code:
+          "css/images/bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy.png",
+        payment_wallet: "bc1q8f3c2lmav0uxkgkm90c4l2eqwy6k2agz0nqfmy",
       };
       break;
   }

@@ -26,8 +26,8 @@ const create_deposit = async (req) => {
     payment_method: select_payment_method(req.body.payment_method)
       .payment_method,
     payment_qr_code:
-      select_payment_method(req.body.payment_method).payment_qr_code ||
-      "unavailable",
+      select_payment_method(req.body.payment_method).payment_qr_code 
+      ,
     payment_wallet: select_payment_method(req.body.payment_method)
       .payment_wallet,
     currency: req.body.currency,

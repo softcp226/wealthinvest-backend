@@ -81,7 +81,7 @@ main.container {
     /* left: 10vw; */
     flex-direction: row;
     position: absolute;
-    top: 110px;
+    top: 100px;
   }
 
   .wallet-container {

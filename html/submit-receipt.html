@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-   Pantera Mining
+ Cryptocom Mining || Submit Receipt
   </title>
   <!-- Favicon -->
   <link href="assets/images/logo'.png" rel="icon" type="image/png">
@@ -92,7 +92,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="/">
-                Pantera Mining
+                Cryptocom Mining
                 <!-- <img src="dashboard/assets/img/brand/blue.png"> -->
               </a>
             </div>
@@ -127,7 +127,7 @@
               <i class="ni ni-single-02 text-yellow"></i> My Profile
             </a>
           </li> -->
-          <li class="nav-item">
+          <li class="nav-item" id="deposit_fund">
             <a class="nav-link " href="deposit.html">
               <i class="ni ni-send text-orange"></i>Deposit Fund 
             </a>
@@ -139,14 +139,26 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="my-investment.html">
-              <i class="ni ni-bullet-list-67 text-red"></i>My Investment
+              <i class="ni ni-bullet-list-67 text-red"></i>My Trade
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="create-investment.html">
-              <i class="ni ni-key-25 text-info"></i>  Create Investment
+              <i class="ni ni-key-25 text-info"></i>  Create Trade
             </a>
           </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="loan-menu.html">
+                <i class="fa fa-folder-open text-dark"></i> Loan Menu
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="request-loan.html">
+                <i class="fa fa-handshake text-primary"></i>Request Loan
+              </a>
+            </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="./examples/register.html">
               <i class="ni ni-circle-08 text-pink"></i> Register
@@ -251,10 +263,22 @@
       <div class="container-fluid">
         <div class="header-body">
 
+<link rel="stylesheet" href="css/overlay-display.css">
+<section class="overlay-display" id="overlay2">
+  <h2 style="text-align: center;">Do you alread have a crypto wallet</h2>
+  <p class="m-2 " style="font-weight: 500;">To deposit fund to your account, you need to have a crypto wallet with
+    crypto.com or any
+    other crypto wallet provider. If you already have a crypto wallet click 'i already have a wallet. to continue to
+    make deposit otherwise click "create new wallet" </p>
+
+  <div> <a href="https://crypto.com/" target="_blank" class="btn btn-dark m-2">Create new wallet</a> <a
+      href="deposit.html" class="btn btn-primary m-2">I alredy have a wallet</a></div>
+</section>
+
           <div class="head-text">
        <h2 class="h4 mb-0 text-white text-uppercase " >Upload Proof of Payment</h2>
       
-<h2 style="color: rgb(35, 29, 29);" >Please before you click on confirm payment make sure you have <a href="" style="color: blue;">sent payment of $100 to the wallet you previously copied</a></h2>
+<h2 style="color:#26b6d4;" >Please before you click on confirm payment make sure you have <a href="" style="color: #fff;">sent payment of $100 to the wallet you previously copied</a></h2>
           </div>
 
        </div>
@@ -290,7 +314,7 @@
 <label for="wallet-address" style="margin: 0px; padding: 0px; line-height: 0px;">wallet address:</label>
 <div class="wallet-address"></div> -->
 <!-- remember to show where to make payment -->
-<button class="btn btn-primary m-2" id="submit">confirm payment</button>
+<button class="btn btn-dark m-2" id="submit">confirm payment</button>
 </div>
 
 <div class="container-sm"></div>

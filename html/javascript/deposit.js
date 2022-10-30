@@ -108,9 +108,9 @@ const handle_submit_deposit = async (form) => {
 
 document.querySelector("#submit").onclick = () => {
   if (!deposit_amount.value) return show_input_error(deposit_amount);
-  if (parseInt(deposit_amount.value) < 100) {
+  if (parseInt(deposit_amount.value) < 200) {
     document.querySelector(".errMessage").innerHTML =
-      "deposit amount must not be lesser than minimum deposit of $100 USD";
+      "deposit amount must not be lesser than minimum deposit of $200 USD";
     show_input_error(deposit_amount);
     return;
   }

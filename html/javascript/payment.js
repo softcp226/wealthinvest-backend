@@ -21,47 +21,42 @@ function copyToClipboard() {
 const display_address = (selectedOption, wallet_container, data) => {
   switch (selectedOption) {
     case "qr_code":
-      if (wallet_container != "unavailable") {
-        document.querySelector("#qr_code").style.display = "inline-block";
-        document.querySelector("#wallet_address").style.display = "none";
-        document.querySelector(
-          "#wallet_note",
-        ).innerHTML = `Open your Crypto.com App, scan the qr code above and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} `;
-      } else {
-        // document.querySelector(
-        //   "#wallet_note",
-        // ).innerHTML = `Open your Crypto.com App, copy and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} to the wallet address above `;
-        document.querySelector("#qr_code").style.display = "none";
-        document.querySelector("#wallet_address").style.display =
-          "inline-block";
-      }
+      document.querySelector("#qr_code").style.display = "inline-block";
+      document.querySelector("#wallet_address").style.display = "none";
+      document.querySelector(
+        "#wallet_note",
+      ).innerHTML = `Open your Crypto.com App, scan the qr code above and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} `;
+      //  else {
+      // document.querySelector(
+      //   "#wallet_note",
+      // ).innerHTML = `Open your Crypto.com App, copy and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} to the wallet address above `;
+      // document.querySelector("#qr_code").style.display = "none";
+      // document.querySelector("#wallet_address").style.display =
+      //   "inline-block";
+      // }
       break;
 
     case "wallet_address":
-      if (wallet_container != "unavailable"){
-        // if (wallet_container != "unavailable") {
-        document.querySelector("#qr_code").style.display = "none";
-        document.querySelector("#wallet_address").style.display =
-          "inline-block";
-        document.querySelector(
-          "#wallet_note",
-        ).innerHTML = `Open your Crypto.com App,copy and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method}  to the wallet above`;
-        // } else {
-        //   document.querySelector("#qr_code").style.display = "none";
-        //   document.querySelector("#wallet_address").style.display = "inline-block";
-        // }
-      }else{
-        document.querySelector("#qr_code").style.display = "none";
-        document.querySelector("#wallet_address").style.display =
-          "inline-block";
-        document.querySelector("#wallet_note").innerHTML = `Send ${
-          data.currency
-        }${data.deposit_amount} to the ${data.payment_method} ${
-          data.payment_method != "Perfect Money" ? "E-mail" : "ID" 
-        } above `;
-      
-      }
-     
+      // if (wallet_container != "unavailable"){
+      // if (wallet_container != "unavailable") {
+      document.querySelector("#qr_code").style.display = "none";
+      document.querySelector("#wallet_address").style.display = "inline-block";
+      document.querySelector(
+        "#wallet_note",
+      ).innerHTML = `Open your Crypto.com App,copy and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method}  to the wallet above`;
+      // } else {
+      //   //   document.querySelector("#qr_code").style.display = "none";
+      //   //   document.querySelector("#wallet_address").style.display = "inline-block";
+      //   // }
+      // }else{
+      // document.querySelector("#qr_code").style.display = "none";
+      // document.querySelector("#wallet_address").style.display = "inline-block";
+      // document.querySelector("#wallet_note").innerHTML = `Send ${
+      //   data.currency
+      // }${data.deposit_amount} to the ${data.payment_method} ${
+      //   data.payment_method != "Perfect Money" ? "E-mail" : "ID"
+      // } above `;
+
       break;
 
     default:
@@ -90,38 +85,39 @@ const shape_result = (data) => {
   qr_code_option.selected = true;
   wallet_address_div.innerHTML = data.payment_wallet;
   qr_code_img.src = data.payment_qr_code;
-
-  data.payment_qr_code == "unavailable"
-    ? (text_h3.innerHTML = `Send ${data.currency}${
-        data.deposit_amount
-      } to the ${data.payment_method} ${
-        data.payment_method != "Perfect Money" ? "E-mail" : "ID"
-      } above `)
-    : (text_h3.innerHTML = `Open your Crypto.com App, scan the qr code above and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} `);
+  const nextbtn = document.createElement("a");
+  nextbtn.className = "btn btn-dark";
+  nextbtn.innerHTML = "I have made payment";
+  nextbtn.href = "/submit-receipt.html";
+  // data.payment_qr_code == "unavailable"
+  //   ? (text_h3.innerHTML = `Send ${data.currency}${
+  //       data.deposit_amount
+  //     } to the ${data.payment_method} ${
+  //       data.payment_method != "Perfect Money" ? "E-mail" : "ID"
+  //     } above `)
+  text_h3.innerHTML = `Open your Crypto.com App, scan the qr code above and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} `;
   select.onchange = () =>
     display_address(select.value, data.payment_qr_code, data);
 
   select.append(wallet_address_option, qr_code_option);
   console.log(select.value);
-  if (data.payment_qr_code != "unavailable") {
-    qr_code_img.style.display = "inline-block";
-    wallet_address_div.style.display = "none";
+  // if (data.payment_qr_code != "unavailable") {
+  qr_code_img.style.display = "inline-block";
+  wallet_address_div.style.display = "none";
 
-    data.payment_qr_code != "unavailable"
-      ? (text_h3.innerHTML = `Open your Crypto.com App, scan the qr code above and send ${data.currency}${data.deposit_amount} worth of ${data.payment_method} `)
-      : (text_h3.innerHTML = `Send ${data.currency}${
-          data.deposit_amount
-        } to the ${data.payment_method} ${
-          data.payment_method != "Perfect Money" ? "E-mail" : "ID"
-        } `);
-  } else {
-    qr_code_img.style.display = "none";
-    wallet_address_div.style.display = "inline-block";
-  }
+  //     text_h3.innerHTML = `Send ${data.currency}${
+  //         data.deposit_amount
+  //       } to the ${data.payment_method} ${
+  //         data.payment_method != "Perfect Money" ? "E-mail" : "ID"
+  //       } `;
+  // } else {
+  // qr_code_img.style.display = "none";
+  // wallet_address_div.style.display = "inline-block";
+  // }
 
   document
     .querySelector(".wallet-container")
-    .append(wallet_address_div, qr_code_img, text_h3, select);
+    .append(wallet_address_div, qr_code_img, text_h3, select,nextbtn , document.createElement("br"));
 };
 
 (async () => {
