@@ -1,7 +1,26 @@
+let user_has_made_deposit = false;
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () =>
+    (document.querySelector("#deposit_fund").onclick = () => {
+      event.preventDefault();
+      if (user_has_made_deposit != true) {
+        document.querySelector("#sidenav-collapse-main").className =
+          "navbar-collapse collapse hide";
+        document.querySelector("#overlay2").style.display = "block";
+        return;
+      } else {
+        window.location.href = "/deposit.html";
+      }
+    }),
+);
+
 const setText = (user) => {
   document.querySelectorAll("#user_passport").forEach((passport) => {
     passport.src = user.passport;
   });
+  user_has_made_deposit = user.has_made_deposit;
   document.querySelector("#final_balance").innerHTML = `$${user.final_balance
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
@@ -9,7 +28,7 @@ const setText = (user) => {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
   document.querySelector(
-    "#active_investment"
+    "#active_investment",
   ).innerHTML = `$${user.active_investment
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;

@@ -47,12 +47,15 @@ const updatepassword = async (form) => {
 };
 const show_input_error = (input) => (input.style.border = "2px solid red");
 
+let user_has_made_deposit = false;
+
 const setUser = (user) => {
   //   alert("called");
   document.querySelector("#first_name").value = user.first_name;
   document.querySelector("#last_name").value = user.last_name;
 
   document.querySelector("#email").value = user.email;
+  user_has_made_deposit = user.has_made_deposit;
 };
 
 document.querySelector("#update").onclick = () => {
@@ -61,7 +64,7 @@ document.querySelector("#update").onclick = () => {
   const email = document.querySelector("#email");
   if (!first_name.value) return show_input_error(first_name);
   if (!last_name.value) return show_input_error(last_name);
-  if(!email.value)return show_input_error(email)
+  if (!email.value) return show_input_error(email);
 
   if (!email.value) return show_input_error(email);
   const user = getCookie("user");
@@ -183,32 +186,31 @@ document.querySelector("#update").onclick = () => {
   });
 };
 
-  document.querySelector("#change").onclick = () => {
-    const password = document.querySelector("#password");
-    const new_password = document.querySelector("#new_password");
-    const retype_password = document.querySelector("#retype_password");
+document.querySelector("#change").onclick = () => {
+  const password = document.querySelector("#password");
+  const new_password = document.querySelector("#new_password");
+  const retype_password = document.querySelector("#retype_password");
 
-    if (!password.value) return show_input_error(password);
-    if (!new_password.value) return show_input_error(new_password);
-    if (!retype_password.value) return show_input_error(retype_password);
+  if (!password.value) return show_input_error(password);
+  if (!new_password.value) return show_input_error(new_password);
+  if (!retype_password.value) return show_input_error(retype_password);
 
-    if (new_password.value != retype_password.value)
-      return (document.querySelector(".errMessage2").innerHTML =
-        "password must match");
-    if (new_password.value.length < 8)
-      return (document.querySelector(".errMessage2").innerHTML =
-        "password must be atleast 8 characters long");
+  if (new_password.value != retype_password.value)
+    return (document.querySelector(".errMessage2").innerHTML =
+      "password must match");
+  if (new_password.value.length < 8)
+    return (document.querySelector(".errMessage2").innerHTML =
+      "password must be atleast 8 characters long");
 
-    const user = getCookie("user");
-    const token = getCookie("token");
-    updatepassword({
-      user,
-      token,
-      password: password.value,
-      new_password: new_password.value,
-    });
-  };
-
+  const user = getCookie("user");
+  const token = getCookie("token");
+  updatepassword({
+    user,
+    token,
+    password: password.value,
+    new_password: new_password.value,
+  });
+};
 
 document.querySelectorAll("input").forEach((input) => {
   input.onchange = () => {
@@ -245,3 +247,19 @@ document.querySelectorAll("input").forEach((input) => {
 })();
 
 // // setUser
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () =>
+    (document.querySelector("#deposit_fund").onclick = () => {
+      event.preventDefault();
+      if (user_has_made_deposit != true) {
+        document.querySelector("#sidenav-collapse-main").className =
+          "navbar-collapse collapse hide";
+        document.querySelector("#overlay2").style.display = "block";
+        return;
+      } else {
+        window.location.href = "/deposit.html";
+      }
+    }),
+);
