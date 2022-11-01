@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema({
   password: String,
   final_balance: {
     type: Number,
-    default: 100,
+    default: 0,
   },
   profit_loss: {
     type: Number,

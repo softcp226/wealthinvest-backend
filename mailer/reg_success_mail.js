@@ -25,19 +25,11 @@ let create_mail_options = (userInfo) => {
   href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap"
   rel="stylesheet"
 />
-<div
-  class="maincontainer"
-  style="
-    font-family: 'Nunito', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
-    width: 100%;
-    background-size: cover;
-  "
+
 >
   <div class="head-txt">
     <h1 style="text-align: center; font-size: 16px; color:#26b6d4">
-      SOFTJOVIAL
+     Cryptocom mining
     </h1>
     <h3 style="font-size: 15px">NEW ACCOUNT NOTIFICATION</h3>
   </div>
@@ -51,10 +43,8 @@ let create_mail_options = (userInfo) => {
     and trading which are designed to meet your needs
   </p>
   <p class="sm-p">
-    You have recieved $100 USD registration bonus which has been deposited to
-    your account. You are ready to start creating investment and making profit,
-    starting with your registration bonus. You can withdraw your registration
-    bonus after making your first deposit
+    You are ready to deposit into your account and  start minig/trading .
+   
   </p>
   <p class="sm-p">
     For more detailed informations, please contact our customer support or your
