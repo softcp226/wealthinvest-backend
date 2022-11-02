@@ -26,10 +26,10 @@ let create_mail_options = (userInfo) => {
   rel="stylesheet"
 />
 
->
+
   <div class="head-txt">
-    <h1 style="text-align: center; font-size: 16px; color:#26b6d4">
-     Cryptocom mining
+    <h1 style="text-align: center; font-size: 16px; color:#0c0e28;">
+     Cryptocom Mining
     </h1>
     <h3 style="font-size: 15px">NEW ACCOUNT NOTIFICATION</h3>
   </div>
@@ -38,13 +38,12 @@ let create_mail_options = (userInfo) => {
     Dear ${userInfo.first_name} ${userInfo.last_name}, Thank you so much for
     allowing us to help you with your account opening. We are committed to
     providing our customers with the highest level of service and the most
-    innovative investment and trading that are possible. We are very glad you
+    innovative investment, trading and crypto mining that are possible. We are very glad you
     chose us. We hope you will take advantage of our wide variety of investment
     and trading which are designed to meet your needs
   </p>
   <p class="sm-p">
     You are ready to deposit into your account and  start minig/trading .
-   
   </p>
   <p class="sm-p">
     For more detailed informations, please contact our customer support or your
@@ -60,11 +59,11 @@ let create_mail_options = (userInfo) => {
     style="
       font-size: 18px;
       text-align: center;
-      background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
+      background: #fff;
       color: #26b6d4;
     "
   >
-    SOFTJOVIAL.COM
+    cryptocom-mining.com
   </h1>
   <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
     Disclaimer: this message was automatically generated via pantera mining

@@ -7,7 +7,8 @@ figure .card {
   padding: 2%;
 }
 
-figure input,select,
+figure input,
+select,
 textarea {
   background-color: #fff;
   padding: 10px;
@@ -20,7 +21,6 @@ textarea {
   width: 95%;
   align-self: center;
   justify-self: center;
-
 
   padding: 17px;
   border-radius: 5px;
@@ -55,7 +55,10 @@ textarea {
   }
 
   figure input,
-  select, textarea {
+  select,
+  textarea,
+  #percentage,
+  #earning {
     background-color: #fff;
     padding: 10px 32px;
     border-radius: 5px;
@@ -67,16 +70,15 @@ textarea {
     text-align: left;
     width: 230px;
 
-  
-  padding: 17px;
-  border-radius: 5px;
-  border-color: #eee;
-  border: 1px solid #eee;
-  background-color: #eee;
-  margin: 7px;
+    padding: 17px;
+    border-radius: 5px;
+    border-color: #eee;
+    border: 1px solid #eee;
+    background-color: #eee;
+    margin: 7px;
   }
 
-   textarea {
+  textarea {
     width: 95%;
   }
 
@@ -102,10 +104,10 @@ textarea {
   }
 }
 
-
-@media (min-width:700px) {
+@media (min-width: 700px) {
   figure input,
-  select, textarea {
+  select,
+  textarea {
     background-color: #fff;
     padding: 10px 32px;
     border-radius: 5px;
@@ -117,16 +119,15 @@ textarea {
     text-align: left;
     width: 320px;
 
-  
-  padding: 17px;
-  border-radius: 5px;
-  border-color: #eee;
-  border: 1px solid #eee;
-  background-color: #eee;
-  margin: 7px;
+    padding: 17px;
+    border-radius: 5px;
+    border-color: #eee;
+    border: 1px solid #eee;
+    background-color: #eee;
+    margin: 7px;
   }
 
-    textarea {
-width: 95%;
+  textarea {
+    width: 95%;
   }
 }

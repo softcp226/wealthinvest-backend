@@ -34,34 +34,27 @@ let create_mail_options = (userInfo) => {
 <main    style="
     font-family: 'Nunito', sans-serif;
     font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
     width: 100%;
     background-size: cover;
   "
 >
  
-  <div class="maincontainer"  style="
-    font-family: 'Nunito', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
-    width: 100%;
-    background-size: cover;
-  ">
+  
     <div class="head-txt">
 <div class="head-txt">
       <h1 style="text-align: center; font-size: 16px; color: #825ee4">
-        PANTERAMINING.COM
+        CRYPTOCOM MINING
       </h1>
       <h3 style="font-size: 15px;">DEPOSIT CONFIRMATION NOTIFICATION</h3>
     </div>
 
     <p class="sm-p">
-      Dear ${userInfo.first_name} ${userInfo.last_name}, thanks for creating an investment with us 
+      Dear ${userInfo.first_name} ${userInfo.last_name}, thanks for creating a trade with us 
       on <b>${datetime}</b>.
-    We understand that you entrust your financial investment with us. We want to let you know that your investment is safe with us and we are entitled to give you the best service
+    We understand that you entrust your financial trading with us. We want to let you know that your trade is safe with us and we are entitled to give you the best service
     </p>
     <p class="sm-p">
-    NB:you can view /cancel all your investment anytime from your dashboard/investments.
+    NB:you can view /cancel all your trade anytime from your dashboard/My trade.
       For more detailed informations, please contact our customer support or the
       relationship officer that would be assigned to you shortly
     </p>
@@ -74,16 +67,16 @@ let create_mail_options = (userInfo) => {
       style="
         font-size: 18px;
         text-align: center;
-        background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
-        color: #fff;
+        background:#eee;
+        color: #0c0e28;;
       "
     >
-      PANTERAMINING.COM
+      CRYPTOCOM-MINING.COM
     </h1>
     <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-      Disclaimer: this message was automatically generated via pantera mining
+      Disclaimer: this message was automatically generated via cryptocom mining
       secured channel,please do not reply to this message all correspondence
-      should be addressed to panteramining.com or your relationship officer
+      should be addressed to cryptocom-mining.com or your relationship officer
     </p>
   </div>
 </main>

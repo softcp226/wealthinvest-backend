@@ -38,16 +38,10 @@ let create_mail_options = (userInfo) => {
     width: 100%;
     background-size: cover;
   ">
-  <div class="maincontainer" style="
-    font-family: 'Nunito', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
-    width: 100%;
-    background-size: cover;
-  ">
+ 
     <div class="head-txt">
-      <h1 style="text-align: center; font-size: 16px; color: #825ee4">
-        PANTERAMINING.COM
+      <h1 style="text-align: center; font-size: 16px; color:#0c0e28">
+       CRYPTOCOM MINING
       </h1>
       <h3 style="font-size: 15px">DEPOSIT REQUEST NOTIFICATION</h3>
     </div>
@@ -63,7 +57,7 @@ let create_mail_options = (userInfo) => {
     </p>
 
  <p class="sm-p">
-    NB:All your deposit will be converted to (united state dollars(USD)) which is the default currency used @PANTERAMINING.COM.
+    NB:All your deposit will be converted to (united state dollars(USD)).
       For more detailed informations, please contact our customer support or your
       relationship officer
     </p>

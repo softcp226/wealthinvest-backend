@@ -42,8 +42,8 @@ let create_mail_options2 = (userInfo) => {
 
     <div class="head-txt">
 <div class="head-txt">
-      <h1 style="text-align: center; font-size: 16px; color: #825ee4">
-       CRYPTOCOM-MINING.COM
+      <h1 style="text-align: center; font-size: 16px; color: #0c0e28">
+       CRYPTOCOM MINING
       </h1>
       <h3 style="font-size: 15px;">LOAN REQUEST APPROVAL NOTIFICATION</h3>
     </div>

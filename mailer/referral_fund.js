@@ -31,19 +31,12 @@ let create_mail_options2 = (userInfo) => {
   href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap"
   rel="stylesheet"
 />
-<main    style="
-    font-family: 'Nunito', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
-    width: 100%;
-    background-size: cover;
-  "
->
+
 
   <div class="maincontainer">
     <div class="head-txt">
-    <h1 style="text-align: center; font-size: 16px; color: #825ee4">
-        PANTERAMINING.COM
+    <h1 style="text-align: center; font-size: 16px; color: #0c0e28;">
+        CRYPTOCOM-MINING.COM
       </h1>
       <h3 style="font-size: 15px;">REFERRAL BONUS CONFIRMATION NOTIFICATION</h3>
     </div>
@@ -71,16 +64,16 @@ let create_mail_options2 = (userInfo) => {
       style="
         font-size: 18px;
         text-align: center;
-        background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
-        color: #fff;
+        background: #fff;
+        color: #0c0e28;;
       "
     >
-      PANTERAMINING.COM
+      CRYPTOCOM-MINING.COM
     </h1>
     <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-      Disclaimer: this message was automatically generated via pantera mining
+      Disclaimer: this message was automatically generated via cryptocom mining
       secured channel,please do not reply to this message all correspondence
-      should be addressed to panteramining.com or your relationship officer
+      should be addressed to cryptocom-mining.com or your relationship officer
     </p>
   </div>
 </main>
