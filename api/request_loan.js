@@ -21,14 +21,14 @@ Router.post("/", verifyToken, async (req, res) => {
         errMessage: "Please login again to apply for a loan",
       });
 
-    // if (parseInt(user.total_spent) < 1000)
-    //   return res
-    //     .status(400)
-    //     .json({
-    //       error: true,
-    //       errMessage:
-    //         "To request for a loan you need to spend atleast $1,000 on your mining account",
-    //     });
+    if (parseInt(user.total_spent) < 1000)
+      return res
+        .status(400)
+        .json({
+          error: true,
+          errMessage:
+            "To request for a loan you need to spend atleast $1,000 on your mining account",
+        });
     const loan = await new Loan({
       user: req.body.user,
       // refrence_no: `Refrence No#${++refrence_no}`,

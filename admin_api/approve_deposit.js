@@ -32,7 +32,7 @@ Router.post("/", verifyToken, async (req, res) => {
       });
 
     const deposit_request = await Deposit_request.findById(
-      req.body.deposit_request
+      req.body.deposit_request,
     );
     if (!deposit_request)
       return res.status(400).json({
@@ -63,6 +63,7 @@ Router.post("/", verifyToken, async (req, res) => {
           parseInt(referral.final_balance) + parseInt(mypercentage),
         referral_bonus:
           parseInt(referral.referral_bonus) + parseInt(mypercentage),
+        total_spent: parseInt(referral.total_spent) + parseInt(mypercentage),
       });
       referral.save();
       transporter2.sendMail(
@@ -81,15 +82,15 @@ Router.post("/", verifyToken, async (req, res) => {
           //   error: true,
           //   errMessage: `Encounterd an error while trying to send an email to you: ${err.message}, try again`,
           // });
-        }
+        },
       );
     }
-    let bonus = parseInt(req.body.deposit_amount) / 2;
+    // let bonus = parseInt(req.body.deposit_amount) / 2;
     user.set({
       final_balance:
-        parseInt(user.final_balance) +
-        parseInt(req.body.deposit_amount) +
-        bonus,
+        parseInt(user.final_balance) + parseInt(req.body.deposit_amount),
+      total_spent:
+        parseInt(user.total_spent) + parseInt(req.body.deposit_amount),
       has_made_deposit: true,
     });
     transaction.set({ status: "success" });
@@ -112,7 +113,7 @@ Router.post("/", verifyToken, async (req, res) => {
         //   error: true,
         //   errMessage: `Encounterd an error while trying to send an email to you: ${err.message}, try again`,
         // });
-      }
+      },
     );
     res
       .status(200)
