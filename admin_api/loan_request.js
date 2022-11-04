@@ -18,7 +18,7 @@ Router.post("/", verifyToken, async (req, res) => {
         error: true,
         errMessage: "Forbidden!, please login again to access this api",
       });
-    const loan = await Loan.find({ status: "pending" });
+    const loan = await Loan.find({ status: "pending" }).populate("user");
     if (!loan)
       return res
         .status(400)

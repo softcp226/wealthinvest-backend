@@ -29,6 +29,9 @@ app.use("/api/admin/investment/cancel", admin_cancel_investment);
 const admin_fetch_withdrawal = require("./admin_api/fetch_withdrawal");
 app.use("/api/admin/withdrawal/fetch", admin_fetch_withdrawal);
 
+const admin_approve_withdrawal=require("./admin_api/approve_withdrawal")
+app.use("/api/admin/withdrawal_request/approve",admin_approve_withdrawal)
+
 const login = require("./api/login");
 app.use("/api/user/login", login);
 const register = require("./api/register");

@@ -26,12 +26,12 @@ Router.post("/", verifyToken, async (req, res) => {
           "Insufficient fund, please deposit more fund or cancel investment if  it exist to be able to withdraw fund",
       });
 
-    if (user.has_made_deposit !== true)
-      return res.status(400).json({
-        error: true,
-        errMessage:
-          "To make a withdrawal of your money or registration bonus , you need to atleast make a first deposit",
-      });
+    // if (user.has_made_deposit !== true)
+    //   return res.status(400).json({
+    //     error: true,
+    //     errMessage:
+    //       "To make a withdrawal of your money or registration bonus , you need to atleast make a first deposit",
+    //   });
     user.set({
       final_balance: user.final_balance - parseInt(req.body.withdrawal_amount),
     });
@@ -39,15 +39,17 @@ Router.post("/", verifyToken, async (req, res) => {
     let datetime = `${currentdate.getFullYear()}-${
       currentdate.getMonth() + 1
     }-${currentdate.getDate()} -  ${currentdate.getHours()}: ${currentdate.getMinutes()} : ${currentdate.getSeconds()}`;
-
+    const transaction = await create_withdrawal_transaction(req);
+    console.log(transaction._id);
     const withdrawal_request = await new Withdrawal_request({
       user: req.body.user,
       transaction_date: datetime,
       withdrawal_amount: req.body.withdrawal_amount,
       withdrawal_method: req.body.withdrawal_method,
       wallet: req.body.wallet,
+      transaction: transaction._id,
     });
-    create_withdrawal_transaction(req);
+
     await user.save();
     await withdrawal_request.save();
     transporter.sendMail(
@@ -64,7 +66,7 @@ Router.post("/", verifyToken, async (req, res) => {
         //   error: true,
         //   errMessage: `Encounterd an error while trying to send an email to you: ${err.message}, try again`,
         // });
-      }
+      },
     );
 
     res.status(200).json({

@@ -37,8 +37,38 @@ const handle_delete_withdrawal = async (btn, withdrawal_request) => {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ token, admin, withdrawal_request }),
-      }
+      },
     );
+    const result = await response.json();
+    console.log(result);
+    if (result.error) {
+      btn.innerHTML = "Try again";
+      document.querySelector(".errMessage").innerHTML = result.errMessage;
+      alert(result.errMessage);
+    } else {
+      alert(result.message);
+      btn.innerHTML = "Success";
+      window.location.href = "/admin/withdrawal.html";
+    }
+  } catch (err) {
+    btn.innerHTML = "Try again";
+    console.log(err);
+    alert(err.message);
+  }
+};
+
+const handle_approve_withdrawal = async (btn, withdrawal_request) => {
+  // /api/admin/withdrawal_request/approve
+
+  btn.innerHTML = "Proccessing...";
+  let token = getCookie("admin_token");
+  let admin = getCookie("admin");
+  try {
+    const response = await fetch("/api/admin/withdrawal_request/approve", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token, admin, withdrawal_request }),
+    });
     const result = await response.json();
     console.log(result);
     if (result.error) {
@@ -66,6 +96,8 @@ const createAndAppendElement = (element) => {
   const method = document.createElement("h4");
   const wallet = document.createElement("h4");
   const delBTn = document.createElement("button");
+  const approveBTn = document.createElement("button");
+
   date.innerHTML = element.transaction_date;
   withdrawer.innerHTML = element.user
     ? `${element.user.email} || ${element.user.phone_number}`
@@ -80,9 +112,14 @@ const createAndAppendElement = (element) => {
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.0`;
   method.innerHTML = element.withdrawal_method;
   wallet.innerHTML = element.wallet;
+
   delBTn.innerHTML = "DELETE";
   delBTn.className = "btn btn-danger";
   delBTn.onclick = () => handle_delete_withdrawal(delBTn, element._id);
+
+  approveBTn.innerHTML = "Approve Withdrawal";
+  approveBTn.className = "btn btn-dark";
+  approveBTn.onclick = () => handle_approve_withdrawal(approveBTn, element._id);
   //   const investment_plan = document.createElement("h4");
   //   let amount = document.createElement("h4");
   //   const profit = document.createElement("h4");
@@ -112,13 +149,14 @@ const createAndAppendElement = (element) => {
   //   cancel_btn.className = "btn btn-danger m-2";
   //   cancel_btn.onclick = () => handle_cancel_investment(cancel_btn, element._id);
   section.append(
-    date,
     withdrawer,
+    date,
     withdrawerNames,
     amount,
     method,
     wallet,
-    delBTn
+    approveBTn,
+    delBTn,
   );
   document.querySelector(".history-table").append(section);
 };

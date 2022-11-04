@@ -24,8 +24,6 @@ function getCookie(cname) {
   window.location.replace("/admin");
 }
 
-
-
 const handle_approve_loan = async (btn, loan_request) => {
   let token = getCookie("admin_token");
   let admin = getCookie("admin");
@@ -52,8 +50,6 @@ const handle_approve_loan = async (btn, loan_request) => {
     document.querySelector(".errMessage").innerHTML = err.message;
   }
 };
-
-
 
 const handle_disaprove_loan = async (btn, loan_request) => {
   let token = getCookie("admin_token");
@@ -113,6 +109,7 @@ const handle_disaprove_loan = async (btn, loan_request) => {
 
 const createAndAppendElement = (data) => {
   const section = document.createElement("section");
+  const userH4 = document.createElement("h4");
   const loanTypeH4 = document.createElement("h4");
   const amountH4 = document.createElement("h4");
   const interestH4 = document.createElement("h4");
@@ -121,7 +118,7 @@ const createAndAppendElement = (data) => {
   const statusH4 = document.createElement("h4");
   const approveBTN = document.createElement("button");
   const disaproveBTN = document.createElement("button");
-
+  userH4.innerHTML = data.user.email;
   loanTypeH4.innerHTML = data.loan_type;
   amountH4.innerHTML = `$${data.loan_amount} `;
   interestH4.innerHTML = data.interest || "unspecified";
@@ -134,7 +131,7 @@ const createAndAppendElement = (data) => {
   approveBTN.className = "btn btn-primary m-2";
   disaproveBTN.className = "btn btn-danger m-2";
   disaproveBTN.onclick = () => handle_disaprove_loan(disaproveBTN, data._id);
- approveBTN.onclick = () => handle_approve_loan(approveBTN, data._id);
+  approveBTN.onclick = () => handle_approve_loan(approveBTN, data._id);
 
   //  data.status == "failed"
   //    ? (statusH4.className = "status-fail")
@@ -143,6 +140,7 @@ const createAndAppendElement = (data) => {
   //    : (statusH4.className = "status-success");
 
   section.append(
+    userH4,
     loanTypeH4,
     amountH4,
     interestH4,

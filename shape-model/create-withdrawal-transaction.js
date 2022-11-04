@@ -9,7 +9,7 @@ const create_withdrawal_transaction = async (req) => {
 
   const transaction = await new Transaction({
     user: req.body.user,
-    refrence_number: `Ref#${++ref} `,
+    refrence_number: `#User Made Withdrawal `,
     transaction_date: datetime,
     debit: `$${req.body.withdrawal_amount
       .toString()
