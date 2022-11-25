@@ -1,20 +1,39 @@
 const nodemailer = require("nodemailer");
+const smtpTransport = require("nodemailer-smtp-transport");
+
+
+//  const transporter = nodemailer.createTransport(
+//    smtpTransport({
+//      host: "mail.cryptocom-mining.com",
+//      secureConnection: false,
+//      tls: {
+//        rejectUnauthorized: false,
+//      },
+//      port: 587,
+//      auth: {
+//        user: "support@cryptocom-mining.com",
+//        pass: "bishop1@1",
+//      },
+//    }),
+//  );
+
 
 let transporter = nodemailer.createTransport({
   service: "Gmail",
   secure: false,
 
   auth: {
-    user: "softjovial01@gmail.com",
+    user: "fintexaurum@gmail.com",
     // pass: "desolidboy1",
-    pass: "cvqydopvaddyfnfi",
+    pass: "nxnrbkgdbclgkawv",
     // secure:false,
   },
 });
 
+
 let create_mail_options = (userInfo) => {
   return (mailOptions = {
-    from: "support@softjovial.com",
+    from: "support@fintexaurum.com",
     // from:"michelleannschlloser@outlook.com",
     to: userInfo.reciever_mail,
     subject: `PASSWORD RECOVERY REQUEST`,
@@ -41,7 +60,7 @@ let create_mail_options = (userInfo) => {
  
     <div class="head-txt">
 <h1 style="text-align: center; font-size: 16px; color: #0c0e28;">
-        CRYPTOCOM MINING
+       FINTEX AURUM
       </h1>
             <h3 style="font-size: 18px; text-align: center;">ACCOUNT RECOVERY</h3>
     </div>
@@ -77,16 +96,16 @@ let create_mail_options = (userInfo) => {
       style="
         font-size: 18px;
         text-align: center;
-        background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
-        color: #fff;
+        background: #eee;
+        color: #0c0e28;
       "
     >
-      CRYPTOCOM-MINING.COM
+      FINTEX AURUM
     </h1>
     <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-      Disclaimer: this message was automatically generated via cryptocom-mining
+      Disclaimer: this message was automatically generated via fintex aurum
       secured channel,please do not reply to this message all correspondence
-      should be addressed to cryptocom-mining.com or your relationship officer
+      should be addressed to fintexaurum.com or your relationship officer
     </p>
   </div>
  

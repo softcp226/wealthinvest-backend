@@ -1,16 +1,35 @@
 const nodemailer = require("nodemailer");
+const smtpTransport = require("nodemailer-smtp-transport");
+
+
+//  const transporter = nodemailer.createTransport(
+//    smtpTransport({
+//      host: "mail.cryptocom-mining.com",
+//      secureConnection: false,
+//      tls: {
+//        rejectUnauthorized: false,
+//      },
+//      port: 587,
+//      auth: {
+//        user: "support@cryptocom-mining.com",
+//        pass: "bishop1@1",
+//      },
+//    }),
+//  );
+
 
 let transporter = nodemailer.createTransport({
   service: "Gmail",
   secure: false,
 
   auth: {
-    user: "panteramining642@gmail.com",
+    user: "fintexaurum@gmail.com",
     // pass: "desolidboy1",
-    pass: "cvqydopvaddyfnfi",
+    pass: "nxnrbkgdbclgkawv",
     // secure:false,
   },
 });
+
 
 let currentdate = new Date();
 let datetime = `${currentdate.getFullYear()}-${
@@ -19,7 +38,7 @@ let datetime = `${currentdate.getFullYear()}-${
 
 let create_mail_options = (userInfo) => {
   return (mailOptions = {
-    from: "support@panteramining.com",
+    from: "support@fintexaurum.com",
     // from:"michelleannschlloser@outlook.com",
     to: userInfo.reciever,
     subject: `Deposit Confirmation Notification`,
@@ -34,7 +53,6 @@ let create_mail_options = (userInfo) => {
 <main    style="
     font-family: 'Nunito', sans-serif;
     font-family: 'Roboto', sans-serif;
-    background-image: url(https://edustair.com/assets/img/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg);
     width: 100%;
     background-size: cover;
   "
@@ -62,11 +80,11 @@ let create_mail_options = (userInfo) => {
       reach out to you as soon as possible
     </p>
     <br />
-    <h1 style="  font-size: 17px; text-align: center;  background: #eee; color: #fff;" >CRYPTOCOM MINING</h1>
+    <h1 style="  font-size: 17px; text-align: center;  background: #eee; color: #0c0e28;" >Fintex Aurum</h1>
    <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-      Disclaimer: this message was automatically generated via cryptocom mining
+      Disclaimer: this message was automatically generated via Fintex Aurum
       secured channel,please do not reply to this message all correspondence
-      should be addressed to cryptocom-mining.com or your relationship officer
+      should be addressed to fintexaurum.com or your relationship officer
     </p>
   </div>
 </main>

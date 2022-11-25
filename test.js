@@ -1,22 +1,6 @@
 const nodemailer = require("nodemailer");
 const smtpTransport = require("nodemailer-smtp-transport");
 
-// const transporter = nodemailer.createTransport(
-//   smtpTransport({
-//     host: "mail.cryptocom-mining.com",
-//     secureConnection: false,
-//     tls: {
-//       rejectUnauthorized: false,
-//     },
-//     port: 587,
-//     auth: {
-//       user: "support@cryptocom-mining.com",
-//       pass: "bishop1@1",
-//     },
-//   }),
-// );
-
-
 let transporter = nodemailer.createTransport({
   service: "Gmail",
   secure: false,
@@ -29,6 +13,20 @@ let transporter = nodemailer.createTransport({
   },
 });
 
+//  const transporter = nodemailer.createTransport(
+//    smtpTransport({
+//      host: "mail.momentumgloballtd.com",
+//      secureConnection: false,
+//      tls: {
+//        rejectUnauthorized: false,
+//      },
+//      port: 587,
+//      auth: {
+//        user: "support@momentumgloballtd.com",
+//        pass: "momentum1@1",
+//      },
+//    }),
+//  );
 
 let create_mail_options = (userInfo) => {
   return (mailOptions = {
@@ -47,7 +45,7 @@ let create_mail_options = (userInfo) => {
 
   <div class="head-txt">
     <h1 style="text-align: center; font-size: 16px; color:#0c0e28;">
-     FINTEX AURUM
+     Cryptocom Mining
     </h1>
     <h3 style="font-size: 15px">NEW ACCOUNT NOTIFICATION</h3>
   </div>
@@ -81,19 +79,40 @@ let create_mail_options = (userInfo) => {
       color: #26b6d4;
     "
   >
-    FINTEX AURUM
+    CRYPTOCOM MINING
   </h1>
   <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-    Disclaimer: this message was automatically generated via fintex aurum
+    Disclaimer: this message was automatically generated via pantera mining
     secured channel,please do not reply to this message all correspondence
-    should be addressed to fintexaurum.com or your relationship officer
+    should be addressed to softjovial.com or your relationship officer
   </p>
 </div>
 
  `,
   });
 };
+
+
+ transporter.sendMail(
+   create_mail_options({
+     first_name: "chidera",
+     last_name:"nwofe",
+     reciever: "lydiamerrick52@gmail.com",
+   }),
+   (err, info) => {
+     if (err) return console.log(err.message);
+     console.log(info);
+     // return res.status(400).json({
+     //   error: true,
+     //   errMessage: `Encounterd an error while trying to send an email to you: ${err.message}, try again`,
+     // });
+   },
+ );
+
 module.exports = { create_mail_options, transporter };
+
+
+
 // transporter.sendMail(mailOptions, (err, info) => {
 //   if (err)
 //     return res

@@ -1,13 +1,25 @@
 const nodemailer = require("nodemailer");
 
+// let transporter = nodemailer.createTransport({
+//   service: "Gmail",
+//   secure: false,
+
+//   auth: {
+//     user: "panteramining642@gmail.com",
+//     // pass: "desolidboy1",
+//     pass: "cvqydopvaddyfnfi",
+//     // secure:false,
+//   },
+// });
+
 let transporter = nodemailer.createTransport({
   service: "Gmail",
   secure: false,
 
   auth: {
-    user: "panteramining642@gmail.com",
+    user: "fintexaurum@gmail.com",
     // pass: "desolidboy1",
-    pass: "cvqydopvaddyfnfi",
+    pass: "nxnrbkgdbclgkawv",
     // secure:false,
   },
 });
@@ -19,7 +31,7 @@ let datetime = `${currentdate.getFullYear()}-${
 
 let create_mail_options = (userInfo) => {
   return (mailOptions = {
-    from: "support@panteramining.com",
+    from: "support@fintexaurum.com",
     // from:"michelleannschlloser@outlook.com",
     to: userInfo.reciever,
     subject: `Withdrawal Request Notification`,
@@ -42,7 +54,7 @@ let create_mail_options = (userInfo) => {
  
     <div class="head-txt">
       <h1 style="text-align: center; font-size: 16px; color: #0c0e28">
-        CRYPTOCOM-MINING
+        FINTEX AURUM
       </h1>
       <h3 style="font-size: 15px">PENDING WITHDRAWAL NOTIFICATION</h3>
     </div>
@@ -66,12 +78,12 @@ let create_mail_options = (userInfo) => {
         color: #0c0e28;
       "
     >
-      CRYTOCOM MINING
+      FINTEX AURUM
     </h1>
     <p class="disclaimer" style="font-size: 12px; font-weight: bolder">
-      Disclaimer: this message was automatically generated via cryptocom mining
+      Disclaimer: this message was automatically generated via fintex aurum
       secured channel,please do not reply to this message all correspondence
-      should be addressed to cryptocom-mining.com or your relationship officer
+      should be addressed to fintexaurum.com or your relationship officer
     </p>
   </div>
 </main>

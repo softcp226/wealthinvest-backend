@@ -165,3 +165,7 @@ console.log(end_date);
 // d2.setDate(currentdate.getDate() + 7);
 // var same = d1.getTime() === d2.getTime();
 // var notSame = d1.getTime() >= d2.getTime();
+
+
+
+// https://stackoverflow.com/questions/64575318/using-webmail-with-nodemailer
