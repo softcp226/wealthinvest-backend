@@ -30,35 +30,43 @@ const Investment = require("../model/investment");
 const select_investment_end_time = (req) => {
   
   switch (req.body.investment_plan) {
-    case "STARTER PLAN":
+    case "PLAN A":
       var date = new Date();
-      date.setDate(date.getDate() + 7);
+      date.setDate(date.getDate() + 1);
       var end_date = date.getTime();
-      var return_time = "After 7 days";
+      var return_time = "After 24 Hours ";
       return { end_date, return_time };
       break;
 
-    case "ZONAL REPRESENTATIVE":
+    case "PLAN B":
       var date = new Date();
-      date.setDate(date.getDate() + 20);
+      date.setDate(date.getDate() + 2);
       var end_date = date.getTime();
-      var return_time = "After 20 days";
+      var return_time = "After 48 Hours";
       return { end_date, return_time };
       break;
 
-    case "AMBASSADOR PLAN":
-       var date = new Date();
-       date.setDate(date.getDate() + 30);
-       var end_date = date.getTime();
-       var return_time = "After 30 days";
-       return { end_date, return_time };
+    case "PLAN C":
+      var date = new Date();
+      date.setDate(date.getDate() + 3);
+      var end_date = date.getTime();
+      var return_time = "After 72 Hours";
+      return { end_date, return_time };
+      break;
+
+    case "PLAN D":
+      var date = new Date();
+      date.setDate(date.getDate() + 5);
+      var end_date = date.getTime();
+      var return_time = "After 120 Hours";
+      return { end_date, return_time };
       break;
 
     default:
       var date = new Date();
-      date.setDate(date.getDate() + 7);
+      date.setDate(date.getDate() + 1);
       var end_date = date.getTime();
-      var return_time = "After 7 days";
+      var return_time = "After 24 Hours";
       return { end_date, return_time };
       break;
   }

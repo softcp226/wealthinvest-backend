@@ -2,9 +2,13 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 require("dotenv").config();
-app.use("/", express.static("html"));
+const cors = require("cors");
+app.use(cors());
 
-app.use("/admin", express.static("admin"));
+app.post("/", (req, res) =>
+  res.status(200).json({ error: false, message: req.body }),
+);
+// app.use("/admin", express.static("admin"));
 const admin_login = require("./admin_api/login");
 app.use("/api/admin/login", admin_login);
 const admin_fetchuser = require("./admin_api/fetch_user");
@@ -15,10 +19,10 @@ const admin_fetch_deposit_request = require("./admin_api/fetch_deposit_request")
 app.use("/api/admin/deposit_request", admin_fetch_deposit_request);
 const approve_deposit = require("./admin_api/approve_deposit");
 app.use("/api/admin/deposit/approve", approve_deposit);
-const admin_loan_request=require("./admin_api/loan_request")
-app.use("/api/admin/loan_request",admin_loan_request)
-const crud_loan=require("./admin_api/crud_loan_request")
-app.use("/api/admin/loan_request/crud",crud_loan)
+const admin_loan_request = require("./admin_api/loan_request");
+app.use("/api/admin/loan_request", admin_loan_request);
+const crud_loan = require("./admin_api/crud_loan_request");
+app.use("/api/admin/loan_request/crud", crud_loan);
 
 const fund_user = require("./admin_api/fund_user");
 app.use("/api/admin/user/fund", fund_user);
@@ -29,8 +33,8 @@ app.use("/api/admin/investment/cancel", admin_cancel_investment);
 const admin_fetch_withdrawal = require("./admin_api/fetch_withdrawal");
 app.use("/api/admin/withdrawal/fetch", admin_fetch_withdrawal);
 
-const admin_approve_withdrawal=require("./admin_api/approve_withdrawal")
-app.use("/api/admin/withdrawal_request/approve",admin_approve_withdrawal)
+const admin_approve_withdrawal = require("./admin_api/approve_withdrawal");
+app.use("/api/admin/withdrawal_request/approve", admin_approve_withdrawal);
 
 const login = require("./api/login");
 app.use("/api/user/login", login);
@@ -54,8 +58,7 @@ const create_investment = require("./api/create_investment");
 app.use("/api/user/create_investment", create_investment);
 
 const request_loan = require("./api/request_loan");
-app.use("/api/user/loan_request",request_loan)
-
+app.use("/api/user/loan_request", request_loan);
 
 const cancel_investment = require("./api/cancel_investment");
 app.use("/api/user/investment/cancel", cancel_investment);
@@ -66,17 +69,13 @@ app.use("/api/user/investments/fetch", fetch_investment);
 const withdrawal = require("./api/withdraw");
 app.use("/api/user/withdraw", withdrawal);
 
-
-
 const forgotten_password = require("./api/forgotten-password");
 app.use("/api/password/forgotten", forgotten_password);
 const reset_password = require("./api/reset-password");
 app.use("/api/user/password/reset", reset_password);
 
-
 const update_user = require("./api/update-user");
 app.use("/api/user/update", update_user);
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`running on port ${port}`));

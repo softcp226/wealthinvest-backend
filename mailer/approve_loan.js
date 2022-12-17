@@ -20,7 +20,7 @@ const smtpTransport = require("nodemailer-smtp-transport");
 
 
 
-let transporter = nodemailer.createTransport({
+let transporter2 = nodemailer.createTransport({
   service: "Gmail",
   secure: false,
 

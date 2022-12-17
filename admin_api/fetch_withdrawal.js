@@ -5,6 +5,7 @@ const Transaction = require("../model/transaction");
 
 const Withdrawal_request = require("../model/withdrawal_request");
 const Admin = require("../model/admin");
+const User=require("../model/user")
 const validate_admin_fetchuser = require("../validation/validate-admin-fetchuser");
 const validate_admin_delete_withdrawal = require("../validation/validate-admin-delete-withdrawal");
 Router.post("/", verifyToken, async (req, res) => {
@@ -54,6 +55,19 @@ Router.delete("/withdrawal/delete", verifyToken, async (req, res) => {
         errMessage: "The requested withdrawal request was not found",
       });
 
+  console.log(withdrawal_request.user);
+       const user = await User.findById(withdrawal_request.user);
+    if (!user)
+      return res.status(403).json({
+        error: true,
+        errMessage: "Forbidden!,The user you tried to cancel their withdrawal no longer exist",
+      });
+
+      user.set({
+        final_balance:
+          parseInt(user.final_balance) +
+          parseInt(withdrawal_request.withdrawal_amount),
+      });
     const transaction = await Transaction.findById(
       withdrawal_request.transaction,
     );
@@ -66,7 +80,7 @@ Router.delete("/withdrawal/delete", verifyToken, async (req, res) => {
     await Withdrawal_request.findByIdAndDelete(req.body.withdrawal_request);
     transaction.set({ status: "failed" });
     await transaction.save();
-
+  await user.save()
     res.status(200).json({
       error: false,
       message: "you successfully deleted a withdrawal request",
